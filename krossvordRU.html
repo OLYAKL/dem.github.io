@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Новогодний кроссворд</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      color: #d40000;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    .crossword {
+      display: inline-block;
+      margin: 20px auto;
+      border: 2px solid #333;
+    }
+    .crossword td {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #333;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 16px;
+      background-color: #fff;
+    }
+    .black {
+      background-color: #000;
+    }
+    .clues {
+      max-width: 600px;
+      margin: 20px auto;
+      text-align: left;
+    }
+    .clues h2 {
+      color: #006400;
+    }
+    .clue {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>Новогодний кроссворд</h1>
+
+  <table class="crossword">
+    <tr>
+      <td>e</td><td>л</td><td>к</td><td>а</td><td></td><td>д</td><td>е</td><td>д</td><td>м</td><td>о</td>
+    </tr>
+    <tr>
+      <td></td><td></td><td></td><td></td><td></td><td></td><td>е</td><td></td><td></td><td>р</td>
+    </tr>
+    <tr>
+      <td></td><td>с</td><td></td><td></td><td></td><td></td><td>д</td><td></td><td></td><td>о</td>
+    </tr>
+    <tr>
+      <td></td><td>н</td><td></td><td>ё</td><td>л</td><td>к</td><td>а</td><td></td><td></td><td>ж</td>
+    </tr>
+    <tr>
+      <td></td><td>о</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>к</td>
+    </tr>
+    <tr>
+      <td></td><td>в</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td>а</td>
+    </tr>
+    <tr>
+      <td></td><td>г</td><td>у</td><td>с</td><td>ь</td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td></td><td>о</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td></td><td>д</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+    <tr>
+      <td></td><td>ь</td><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td>
+    </tr>
+  </table>
+
+  <div class="clues">
+    <h2>По горизонтали:</h2>
+    <div class="clue">1. Лесное животное, часто ассоциируется с Новым годом (4 буквы)</div>
+    <div class="clue">6. Главный новогодний волшебник в России (9 букв)</div>
+    <div class="clue">7. Домашняя птица, традиционное блюдо на праздничный стол (4 буквы)</div>
+
+    <h2>По вертикали:</h2>
+    <div class="clue">1. Украшенное дерево в доме на Новый год (5 букв)</div>
+    <div class="clue">2. Зимнее развлечение на льду (4 буквы)</div>
+    <div class="clue">3. Дед Мороз для западных стран (3 буквы)</div>
+    <div class="clue">4. Символ 2025 года по восточному календарю (3 буквы)</div>
+    <div class="clue">5. Песня, которую поют на праздник (6 букв)</div>
+    <div class="clue">8. То, что вешают на ёлку (4 буквы)</div>
+    <div class="clue">9. Зимний месяц (8 букв)</div>
+  </div>
+
+  <script>
+    // Простая реализация "черных" клеток и очистка пустых ячеек
+    document.querySelectorAll('.crossword td').forEach(cell => {
+      if (cell.textContent.trim() === '') {
+        cell.classList.add('black');
+        cell.textContent = '';
+      }
+    });
+  </script>
+</body>
+</html>

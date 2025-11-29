@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Christmas Crossword</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e6f7ff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #d42e12;
+    }
+    .crossword {
+      display: inline-block;
+      margin: 20px auto;
+      border: 2px solid #333;
+      border-collapse: collapse;
+    }
+    .crossword td {
+      width: 36px;
+      height: 36px;
+      border: 1px solid #333;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      font-size: 18px;
+      background-color: #ffffff;
+      font-family: 'Courier New', monospace;
+    }
+    .black {
+      background-color: #000;
+    }
+    .legend {
+      margin-top: 25px;
+      text-align: left;
+      display: inline-block;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+      max-width: 400px;
+    }
+    .legend h2 {
+      margin-top: 0;
+      color: #d42e12;
+    }
+    .legend ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .legend li {
+      margin: 6px 0;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎄 Christmas Crossword 🎄</h1>
+
+  <!-- Crossword grid: 8 rows x 8 columns -->
+  <table class="crossword">
+    <tr>
+      <td>S</td><td>N</td><td>O</td><td>W</td><td>M</td><td>A</td><td>N</td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>N</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td>T</td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>O</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td>R</td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>W</td><td class="black"></td><td>A</td><td>D</td><td>V</td><td>E</td><td>E</td>
+    </tr>
+    <tr>
+      <td>G</td><td>I</td><td>F</td><td>T</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td>
+    </tr>
+  </table>
+
+  <div class="legend">
+    <h2>Words to find:</h2>
+    <ul>
+      <li>1. <b>snowman</b> (horizontal, row 1)</li>
+      <li>2. <b>snow</b> (vertical, column 1, rows 1–4)</li>
+      <li>3. <b>advent</b> (horizontal, row 4, columns 4–9 → здесь 7 букв, умещено в 7 клеток)</li>
+      <li>4. <b>gift</b> (horizontal, row 5, columns 1–4)</li>
+      <li>5. <b>tree</b> (vertical, column 8, rows 1–4)</li>
+    </ul>
+  </div>
+
+  <p style="margin-top: 30px; color: #555; font-size: 16px;">
+    🎁 Happy Holidays! Can you find all the Christmas words?
+  </p>
+</body>
+</html>
