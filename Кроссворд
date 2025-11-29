@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Новогодний кроссворд</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      padding: 20px;
+    }
+    h1 {
+      color: #d42e12;
+    }
+    .crossword {
+      display: inline-block;
+      margin: 20px auto;
+      border: 2px solid #333;
+      border-collapse: collapse;
+    }
+    .crossword td {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #333;
+      text-align: center;
+      vertical-align: middle;
+      font-weight: bold;
+      background-color: #ffffff;
+    }
+    .black {
+      background-color: #000;
+      border: 1px solid #000;
+    }
+    .legend {
+      margin-top: 20px;
+      text-align: left;
+      display: inline-block;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .legend h2 {
+      margin-top: 0;
+      color: #d42e12;
+    }
+    .legend ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    .legend li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎄 Новогодний кроссворд 🎄</h1>
+
+  <!-- Кроссворд 12x12 -->
+  <table class="crossword">
+    <tr>
+      <td class="black"></td><td class="black"></td><td>S</td><td>N</td><td>E</td><td>G</td><td>U</td><td>R</td><td>O</td><td>C</td><td>H</td><td>K</td>
+    </tr>
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td>A</td>
+    </tr>
+    <tr>
+      <td>M</td><td>A</td><td>N</td><td>D</td><td>A</td><td>R</td><td>I</td><td>N</td><td>Y</td><td class="black"></td><td class="black"></td><td></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td>A</td><td class="black"></td><td>L</td><td>E</td>
+    </tr>
+    <tr>
+      <td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td>P</td><td>O</td><td>D</td><td>A</td><td>R</td><td>K</td><td>I</td><td></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>P</td><td>I</td><td>N</td><td>G</td><td>V</td><td>I</td><td>N</td><td>Y</td><td class="black"></td><td class="black"></td><td></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>R</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>Y</td><td>A</td><td>N</td><td>I</td><td>K</td><td>I</td><td class="black"></td><td>L</td><td>E</td><td>D</td><td></td>
+    </tr>
+    <tr>
+      <td class="black"></td><td>A</td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td class="black"></td><td>E</td><td>N</td><td>C</td><td>Y</td>
+    </tr>
+    <tr>
+      <td>L</td><td>E</td><td>D</td><td>E</td><td>N</td><td>C</td><td>Y</td><td class="black"></td><td>D</td><td class="black"></td><td class="black"></td><td></td>
+    </tr>
+    <tr>
+      <td>A</td><td>O</td><td>L</td><td>E</td><td>N</td><td>I</td><td class="black"></td><td class="black"></td><td>E</td><td class="black"></td><td class="black"></td><td></td>
+    </tr>
+    <tr>
+      <td>T</td><td>S</td><td>A</td><td>L</td><td>A</td><td>T</td><td class="black"></td><td class="black"></td><td>K</td><td>A</td><td>L</td><td>E</td>
+    </tr>
+  </table>
+
+  <div class="legend">
+    <h2>Слова кроссворда:</h2>
+    <ul>
+      <li>1. Снегурочка (по горизонтали, строка 1)</li>
+      <li>2. Мандарины (по горизонтали, строка 3)</li>
+      <li>3. Подарки (по горизонтали, строка 5)</li>
+      <li>4. Пингвины (по горизонтали, строка 6)</li>
+      <li>5. Пряники (по горизонтали, строка 8)</li>
+      <li>6. Леденцы (по горизонтали, строка 10)</li>
+      <li>7. Олени (по горизонтали, строка 11)</li>
+      <li>8. Салат (по горизонтали, строка 12)</li>
+      <li>9. Елка (по вертикали, столбец 12, строки 1–4 и 12)</li>
+      <li>10. Лед (по вертикали, столбец 11–12, строки 3–4)</li>
+    </ul>
+  </div>
+
+  <p style="margin-top: 30px; color: #555;">
+    🎁 Попробуй отгадать все слова! Подсказки — новогодние атрибуты и символы праздника.
+  </p>
+</body>
+</html>
