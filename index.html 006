@@ -1,1 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мой Блог | OlyaKL</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Подключаем красивые шрифты -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
 
+    <header class="main-header">
+        <h1>👋 Привет, я Оля!</h1>
+        <p>Мой личный блог о коде, криптографии и жизни</p>
+    </header>
+
+    <main class="container">
+
+        <!-- Пост 1 -->
+        <article class="card">
+            <span class="date">08 апреля 2026</span>
+            <h2>Новый проект</h2>
+            <a href="test.png" class="file-link">📂 Открыть файл проекта (test.png)</a>
+        </article>
+
+        <!-- Пост 2: Криптография -->
+        <article class="card crypto-post">
+            <span class="date">20 января 2026</span>
+            <h2>🔐 RSA Шифрование</h2>
+            <div class="code-block">
+                <p><strong>Ключи:</strong> (e, n) = (5, 21), (d, n) = (5, 21)</p>
+                <p><strong>Исходное слово:</strong> привет</p>
+                <p><strong>Числа:</strong> [17, 18, 10, 3, 6, 20]</p>
+                <p><strong>Шифртекст:</strong> [5, 9, 19, 12, 6, 20]</p>
+                <hr>
+                <p class="success-text">✅ Расшифровано успешно: привет</p>
+            </div>
+            <p class="note">Реальное n очень большое (см. исходный код)</p>
+        </article>
+
+        <!-- Пост 3: Шифры замены -->
+        <article class="card">
+            <span class="date">19 января 2026</span>
+            <h2>🧩 Шифры Цезаря/Замены</h2>
+            <ul class="data-list">
+                <li>АПЕЛЬСИН – САЦЬНВЩЮ (Ключ = 17)</li>
+                <li>АБРИКОС – ЫЬЛГЕЙМ (Ключ = 27)</li>
+                <li>ФХНЗКЧ - ПРИВЕТ</li>
+                <li>ЦЩЕБФ - ВЕСНА</li>
+                <li>КЛИНКОВА - ФХТЧФШМК</li>
+            </ul>
+        </article>
+
+        <!-- Пост 4: Контакты -->
+        <article class="card highlight-card">
+            <span class="date">14 января 2026</span>
+            <h2>📬 Связь со мной</h2>
+            <p>Домен: <strong>olyakl.github.io</strong></p>
+            <a href="mailto:olikbolikklinolik@mail.ru.com" class="btn-mail">Написать мне письмо ✉️</a>
+        </article>
+
+        <!-- Пост 5: Новый год -->
+        <article class="card">
+            <span class="date">22 декабря 2025</span>
+            <h2>🎄 С Новым 2026 годом!</h2>
+            <img src="Icons/icon.png" alt="Праздничная елочка" class="post-img">
+            <p>Поздравление читайте <a href="Congratulations2026.html">здесь</a>.</p>
+        </article>
+
+        <!-- Пост 6: Друг -->
+        <article class="card">
+            <span class="date">15 октября 2025</span>
+            <p>Я сделала новогодние кроссворды для сайта <a href="https://github.com/Sofia-a-cell/dem.github.io" target="_blank">моего друга Софии</a>.</p>
+        </article>
+
+        <!-- Пост 7: Цитата -->
+        <article class="card quote-card">
+            <span class="date">1 сентября 2025</span>
+            <blockquote>
+                "Путешествие в тысячу миль начинается с одного шага."
+                <cite>— Лао Цзы</cite>
+            </blockquote>
+            <p class="personal-note">Оставляю локальную файловую систему ради Всемирной паутины.</p>
+        </article>
+
+        <!-- Пост 8: ML Предсказания -->
+        <article class="card code-post">
+            <span class="date">18 февраля - 16 марта 2026</span>
+            <h2>🤖 Machine Learning заметки</h2>
+            
+            <h3>Предсказание обуви</h3>
+            <p>Running shoe: 99.45% | Shoe store: 0.27%</p>
+            
+            <h3>Прогноз оценок студентов (Python)</h3>
+            <pre><code>
+new_student = pd.DataFrame({'Часы': [5]})
+prediction = regressor.predict(new_student)
+print(f"Прогноз баллов: {prediction[0]:.2f}")
+            </code></pre>
+
+            <h3>Модель кредита</h3>
+            <p>Точность: 87.10%. Датасет: 5000 записей.</p>
+            <p class="warning">⚠️ MSE: 0.0179 (модель сложная для интерпретации)</p>
+        </article>
+
+        <!-- Пост 9: Файлы -->
+        <article class="card">
+            <span class="date">Весна 2026</span>
+            <h2>📊 Мои таблицы</h2>
+            <div class="files-grid">
+                <a href="таблица 009.xlsx" class="file-btn">📅 Таблица 009 (.xlsx)</a>
+                <a href="таблица oli.ods" class="file-btn">📊 Oli Table (.ods)</a>
+                <a href="кросворд 10006.ods" class="file-btn">🧩 Кроссворд (.ods)</a>
+            </div>
+        </article>
+
+    </main>
+
+    <footer>
+        <p>Icons by <a href="https://www.flaticon.com/" title="Flaticon">Freepik</a></p>
+        <p>&copy; 2026 OlyaKL. Made with 💜 on GitHub Pages.</p>
+    </footer>
+
+</body>
+</html>
+           
