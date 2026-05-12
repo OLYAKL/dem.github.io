@@ -3,245 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Мой блог | Оля Клинова</title>
-    <!-- Подключаем красивые шрифты -->
+    <title>🌸 Мой Блог | Оля Клинова</title>
+    <!-- Подключаем милые и современные шрифты -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Палитра "Ангельский голубой" */
-            --bg-color: #f0f9ff;
-            --card-bg: rgba(255, 255, 255, 0.85);
-            --primary-blue: #38bdf8;
-            --deep-blue: #0284c7;
-            --text-main: #0c4a6e;
-            --text-muted: #64748b;
-            --angel-glow: 0 0 30px rgba(56, 189, 248, 0.3);
-            --radius: 20px;
+            /* Розовая палитра */
+            --bg-pink: #fff0f5;       /* Lavender Blush */
+            --card-bg: #ffffff;
+            --primary-pink: #ff8fa3;  /* Мягкий розовый */
+            --hot-pink: #ff4d6d;      /* Яркий акцент */
+            --text-dark: #590d22;     /* Темно-бордовый для текста */
+            --text-gray: #805b61;
+            --code-bg: #fff5f7;
+            --shadow: 0 10px 30px -5px rgba(255, 77, 109, 0.15);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(180deg, #e0f2fe 0%, #f0f9ff 100%);
-            color: var(--text-main);
+            font-family: 'Nunito', sans-serif;
+            background-color: var(--bg-pink);
+            background-image: radial-gradient(#ffc2d1 1px, transparent 1px);
+            background-size: 20px 20px; /* Эффект точки/горошек */
+            color: var(--text-dark);
             line-height: 1.6;
-            min-height: 100vh;
-            overflow-x: hidden;
+            padding-bottom: 3rem;
+        }
+
+        /* Заголовок сайта */
+        header {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
+            border-bottom: 3px solid white;
+            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.2);
+            margin-bottom: 2.5rem;
             position: relative;
         }
 
-        /* Эффект "Ангельского света" на фоне */
-        body::before {
-            content: '';
-            position: fixed;
-            top: -20%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80vw;
-            height: 80vh;
-            background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(56, 189, 248, 0.2) 40%, transparent 70%);
-            filter: blur(40px);
-            z-index: -1;
-            animation: divineLight 10s infinite alternate ease-in-out;
+        header h1 {
+            font-size: 2.8rem;
+            color: var(--hot-pink);
+            font-weight: 800;
+            text-shadow: 2px 2px 0px white;
         }
 
-        @keyframes divineLight {
-            0% { opacity: 0.6; transform: translateX(-50%) scale(1); }
-            100% { opacity: 1; transform: translateX(-50%) scale(1.1); }
+        header p {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-top: 0.5rem;
         }
 
         /* Контейнер */
         main {
             max-width: 800px;
             margin: 0 auto;
-            padding: 2rem 1.5rem;
+            padding: 0 1.5rem;
         }
 
-        /* Заголовок блога */
-        header {
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        header h1 {
-            font-size: 3rem;
-            font-weight: 700;
-            color: var(--deep-blue);
-            text-shadow: 0 2px 10px rgba(56, 189, 248, 0.4);
-            margin-bottom: 0.5rem;
-        }
-
-        header p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-        }
-
-        /* Карточки постов (Эффект стекла) */
+        /* Карточка поста */
         article {
             background: var(--card-bg);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            border-radius: var(--radius);
+            border-radius: 24px;
             padding: 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px -10px rgba(2, 132, 199, 0.15);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: var(--shadow);
+            border: 2px solid transparent;
+            transition: all 0.3s ease;
             position: relative;
             overflow: hidden;
         }
 
+        /* Эффект при наведении */
         article:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--angel-glow);
-            border-color: var(--primary-blue);
+            transform: translateY(-7px);
+            border-color: var(--primary-pink);
+            box-shadow: 0 15px 35px -5px rgba(255, 77, 109, 0.25);
         }
 
-        /* Декоративное "перышко" в углу карточки */
+        /* Эффект "Белого кота" */
         article::after {
-            content: '🪽';
+            content: '🐈'; 
+            /* Если хочешь именно белого кота, можно использовать эмодзи или картинку. 
+               Здесь используем фильтр, чтобы сделать кота светлым/призрачным */
+            filter: grayscale(100%) brightness(200%) drop-shadow(0 0 5px pink);
+            font-size: 3rem;
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            opacity: 0.2;
-            transition: opacity 0.3s;
+            top: 1.5rem;
+            right: 1.5rem;
+            opacity: 0;
+            transform: translateX(20px) rotate(10deg);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
-        
+
         article:hover::after {
             opacity: 0.8;
-            transform: rotate(-10deg);
+            transform: translateX(0) rotate(0deg);
         }
 
-        /* Даты и Теги */
+        /* Даты */
         .date-badge {
             display: inline-block;
+            background: var(--bg-pink);
+            color: var(--hot-pink);
+            font-weight: 700;
             font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--deep-blue);
-            background: rgba(56, 189, 248, 0.15);
-            padding: 0.3rem 0.8rem;
+            padding: 0.4rem 1rem;
             border-radius: 50px;
             margin-bottom: 1rem;
+            border: 1px solid #ffccd5;
         }
 
         h2 {
             font-size: 1.6rem;
             margin-bottom: 1rem;
-            color: var(--deep-blue);
+            color: var(--text-dark);
         }
 
-        /* Ссылки */
+        /* Ссылки и кнопки */
         a {
-            color: var(--deep-blue);
+            color: var(--hot-pink);
             text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            transition: color 0.3s;
+            font-weight: 700;
+            transition: color 0.2s;
         }
 
         a:hover {
-            color: var(--primary-blue);
+            color: #c9184a;
+            text-decoration: underline;
         }
 
-        .btn-download {
+        .btn-cute {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
+            background: var(--hot-pink);
             color: white !important;
-            padding: 0.6rem 1.2rem;
-            border-radius: 12px;
+            padding: 0.7rem 1.4rem;
+            border-radius: 15px;
             margin-top: 1rem;
-            box-shadow: 0 4px 15px rgba(56, 189, 248, 0.4);
+            text-decoration: none !important;
+            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
             transition: transform 0.2s;
         }
 
-        .btn-download:hover {
+        .btn-cute:hover {
+            background: #ff4785;
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(56, 189, 248, 0.6);
         }
 
-        /* Блоки кода и данных */
+        /* Оформление кода */
         pre {
-            background: rgba(240, 249, 255, 0.7);
+            background: var(--code-bg);
             padding: 1rem;
             border-radius: 12px;
-            overflow-x: auto;
+            border-left: 4px solid var(--primary-pink);
             font-family: 'JetBrains Mono', monospace;
             font-size: 0.9rem;
-            border: 1px solid rgba(56, 189, 248, 0.2);
-            color: var(--text-main);
+            color: var(--text-dark);
+            overflow-x: auto;
             margin: 1rem 0;
         }
 
         code {
             font-family: 'JetBrains Mono', monospace;
-            color: var(--deep-blue);
-            background: rgba(56, 189, 248, 0.1);
+            background: rgba(255, 143, 163, 0.2);
             padding: 0.2rem 0.4rem;
-            border-radius: 4px;
+            border-radius: 6px;
+            color: #a4133c;
         }
 
-        /* Цитаты */
+        /* Списки и цитаты */
+        ul.crypto-list {
+            list-style: none;
+        }
+        
+        ul.crypto-list li {
+            padding: 0.6rem 0;
+            border-bottom: 1px dashed #ffccd5;
+        }
+
         blockquote {
-            border-left: 4px solid var(--primary-blue);
-            padding-left: 1.5rem;
-            font-style: italic;
-            color: var(--text-muted);
-            margin: 1rem 0;
-            background: linear-gradient(90deg, rgba(56, 189, 248, 0.05), transparent);
+            background: white;
+            border-left: 5px solid var(--primary-pink);
             padding: 1rem;
+            font-style: italic;
+            color: var(--text-gray);
             border-radius: 0 12px 12px 0;
+            margin: 1rem 0;
         }
 
-        /* Изображения */
         img {
             max-width: 100%;
             border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(2, 132, 199, 0.2);
+            border: 4px solid white;
+            box-shadow: var(--shadow);
             margin: 1rem 0;
-            display: block;
         }
 
-        /* Списки для шифров */
-        .crypto-list {
-            list-style: none;
-        }
-        .crypto-list li {
-            padding: 0.6rem 0;
-            border-bottom: 1px dashed rgba(56, 189, 248, 0.3);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .crypto-list li:last-child { border-bottom: none; }
-
-        /* Анимация появления */
-        @keyframes floatIn {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        article {
-            animation: floatIn 0.8s ease backwards;
-        }
-        article:nth-child(1) { animation-delay: 0.1s; }
-        article:nth-child(2) { animation-delay: 0.2s; }
-        article:nth-child(3) { animation-delay: 0.3s; }
-        article:nth-child(4) { animation-delay: 0.4s; }
-        article:nth-child(5) { animation-delay: 0.5s; }
-        article:nth-child(n+6) { animation-delay: 0.6s; }
-
+        /* Footer */
         footer {
             text-align: center;
-            padding: 2rem;
-            color: var(--text-muted);
+            margin-top: 3rem;
+            color: var(--text-gray);
             font-size: 0.9rem;
         }
     </style>
@@ -249,37 +217,33 @@
 <body>
 
     <header>
-        <h1>✨ Angel Blog</h1>
-        <p>Легкость бытия, код и криптография</p>
+        <h1>🌸 Pink Blog</h1>
+        <p>Уютные заметки о коде и жизни</p>
     </header>
 
     <main>
         <!-- Пост 1 -->
         <article>
             <span class="date-badge">08 апреля 2026</span>
-            <h2>Проект</h2>
-            <p>Скачать материалы проекта можно по ссылке ниже.</p>
-            <a href="test.png" class="btn-download" download>📥 Скачать (test.png)</a>
+            <h2>✨ Мой проект</h2>
+            <p>Здесь можно скачать тестовое изображение.</p>
+            <a href="test.png" class="btn-cute" download>📥 Скачать (test.png)</a>
         </article>
 
         <!-- Пост 2: RSA -->
         <article>
             <span class="date-badge">20 января 2026</span>
             <h2>🔐 RSA Шифрование</h2>
-            <div style="background: rgba(56,189,248,0.1); padding: 1rem; border-radius: 12px; margin-bottom: 1rem;">
-                <p><strong>Ключи:</strong> Открытый (e=5, n=21), Закрытый (d=5, n=21)</p>
-            </div>
+            <p><strong>Ключи:</strong> e=5, n=21 (Открытый), d=5 (Закрытый)</p>
             
             <pre>
 Исходное слово: привет
-Числовое представление: [17, 18, 10, 3, 6, 20]
+Числа: [17, 18, 10, 3, 6, 20]
 Шифртекст: [5, 9, 19, 12, 6, 20]</pre>
 
-            <p><strong>Расшифровка:</strong></p>
+            <p style="margin-top:1rem;"><strong>Расшифровка прошла успешно:</strong></p>
             <pre>
-Шифртекст: [5, 9, 19, 12, 6, 20] 
-➔ Числа: [17, 18, 10, 3, 6, 20] 
-➔ Сообщение: привет ✅</pre>
+[5, 9, 19, 12, 6, 20] ➔ [17, 18, 10, 3, 6, 20] ➔ привет 🐱</pre>
         </article>
 
         <!-- Пост 3: Цезарь -->
@@ -287,111 +251,108 @@
             <span class="date-badge">19 января 2026</span>
             <h2>🏛️ Шифр Цезаря</h2>
             <ul class="crypto-list">
-                <li><code>АПЕЛЬСИН</code> <span>➔</span> <code>САЦЬНВЩЮ</code> <small>(Ключ 17)</small></li>
-                <li><code>АБРИКОС</code> <span>➔</span> <code>ЫЬЛГЕЙМ</code> <small>(Ключ 27)</small></li>
-                <li><code>ФХНЗКЧ</code> <span>➔</span> <code>ПРИВЕТ</code> 🔓</li>
-                <li><code>ЦЩЕБФ</code> <span>➔</span> <code>ВЕСНА</code> 🌸</li>
-                <li><code>КЛИНКОВА</code> <span>➔</span> <code>ФХТЧФШМК</code> ✨</li>
+                <li><code>АПЕЛЬСИН</code> ➔ <code>САЦЬНВЩЮ</code> (Ключ 17)</li>
+                <li><code>АБРИКОС</code> ➔ <code>ЫЬЛГЕЙМ</code> (Ключ 27)</li>
+                <li><code>ФХНЗКЧ</code> ➔ <code>ПРИВЕТ</code> 🔓</li>
+                <li><code>ЦЩЕБФ</code> ➔ <code>ВЕСНА</code> 🌸</li>
+                <li><code>КЛИНКОВА</code> ➔ <code>ФХТЧФШМК</code> ✨</li>
             </ul>
         </article>
 
         <!-- Пост 4: Контакты -->
         <article>
             <span class="date-badge">14 января 2026</span>
-            <h2>🕊️ Контакты</h2>
-            <p>Домен: <strong>olyakl.github.io</strong></p>
-            <a href="mailto:olikbolikklinolik@mail.ru.com" class="btn-download">✉️ Написать мне</a>
+            <h2>💌 Контакты</h2>
+            <p>Мой домен: <strong>olyakl.github.io</strong></p>
+            <a href="mailto:olikbolikklinolik@mail.ru.com" class="btn-cute">✉️ Написать письмо</a>
         </article>
 
         <!-- Пост 5: Новый год -->
         <article>
             <span class="date-badge">22 декабря 2025</span>
-            <h2>🎄 С Новым 2026 годом!</h2>
-            <!-- Убедись, что картинка лежит в папке Icons -->
-            <img src="Icons/icon.png" alt="Елочка">
+            <h2>🎄 Happy New Year 2026!</h2>
+            <img src="Icons/icon.png" alt="Новогодняя елочка">
             <p>Поздравление читай <a href="Congratulations2026.html">здесь</a>.</p>
         </article>
 
         <!-- Пост 6: Друг -->
         <article>
             <span class="date-badge">15 октября 2025</span>
-            <h2>🤝 Коллаборация</h2>
-            <p>Я сделала Новогодние кроссворды для сайта друга.</p>
-            <a href="https://github.com/Sofia-a-cell/dem.github.io/edit/main/index.html" target="_blank">Перейти на сайт друга →</a>
+            <h2>👯‍♀️ Для сайта друга</h2>
+            <p>Сделала новогодние кроссворды!</p>
+            <a href="https://github.com/Sofia-a-cell/dem.github.io/edit/main/index.html" target="_blank">Перейти к другу ➔</a>
         </article>
 
         <!-- Пост 7: Цитата -->
         <article>
             <span class="date-badge">1 сентября 2025</span>
-            <h2>💭 Мысли вслух</h2>
+            <h2>🐾 Мудрость дня</h2>
             <blockquote>
                 «Путешествие в тысячу миль начинается с одного шага» <br>
                 <small>— Лао Цзы</small>
             </blockquote>
-            <p>Оставляю локальную файловую систему ради Всемирной паутины. 🚀</p>
-            <p style="margin-top:1rem; font-size:0.8rem; opacity:0.7;">
-                Icons by <a href="https://www.flaticon.com/ru/free-icons/2026">Freepik</a>
-            </p>
+            <p>Hello, World Wide Web! 👋</p>
         </article>
 
-        <!-- Пост 8: Предсказания -->
+        <!-- Пост 8: AI -->
         <article>
             <span class="date-badge">18 февраля 2026</span>
-            <h2>👁️ AI Предсказания</h2>
-            <div class="crypto-list">
-                <div style="padding: 0.5rem 0;"><strong>running shoe:</strong> 99.45%</div>
-                <div style="padding: 0.5rem 0;"><strong>shoe store:</strong> 0.27%</div>
-                <div style="padding: 0.5rem 0;"><strong>clogs:</strong> 0.15%</div>
+            <h2>👁️ Нейросеть увидела:</h2>
+            <div style="background: #fff5f7; padding: 1rem; border-radius: 12px;">
+                <p>🥇 <strong>running shoe:</strong> 99.45%</p>
+                <p>🥈 <strong>shoe store:</strong> 0.27%</p>
+                <p>🥉 <strong>clogs:</strong> 0.15%</p>
             </div>
         </article>
 
-        <!-- Пост 9: FAQ Бот -->
+        <!-- Пост 9: FAQ Bot -->
         <article>
             <span class="date-badge">25 февраля 2026</span>
-            <h2>🤖 FAQ Bot Logic</h2>
+            <h2>🤖 FAQ Bot</h2>
             <pre>
 User: Сколько ждать мой заказ?
-Match: Как быстро доставляется заказ? (sim=0.706)
-Bot: Наш стандартный срок доставки — 3–5 рабочих дней.</pre>
+Bot: Наш стандартный срок доставки — 3–5 рабочих дней.
+(Similarity: 0.706)</pre>
         </article>
 
-        <!-- Пост 10: ML Прогноз -->
+        <!-- Пост 10: ML Code -->
         <article>
             <span class="date-badge">16 марта 2026</span>
-            <h2>📊 Python Prediction</h2>
+            <h2>📊 Прогноз успеваемости (Python)</h2>
             <pre>
-# Прогноз баллов студента
+# Создаем датафрейм
 new_student = pd.DataFrame({'Часы': [5]})
 prediction = regressor.predict(new_student)
+
 print(f"Прогноз баллов: {prediction[0]:.2f}")</pre>
         </article>
 
-        <!-- Пост 11: Датасет -->
+        <!-- Пост 11: Insurance Model -->
         <article>
             <span class="date-badge">21 марта 2026</span>
-            <h2>🚗 Модель страхования</h2>
-            <p><strong>Точность:</strong> 87.10% ✅</p>
-            <ul style="margin-left: 1.5rem; color: var(--text-muted); margin-top: 0.5rem;">
-                <li>Объем: 5,000 записей</li>
-                <li>Признаки: возраст, стаж, ДТП</li>
+            <h2>🚗 Страхование (ML Model)</h2>
+            <p><strong>Точность:</strong> <span style="color:var(--hot-pink); font-weight:bold;">87.10%</span></p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-gray);">
+                <li>Датасет: 5,000 записей</li>
                 <li>Одобрено: 61.6%</li>
+                <li>Признаки: возраст, стаж, ДТП</li>
             </ul>
         </article>
 
         <!-- Пост 12: Файлы -->
         <article>
             <span class="date-badge">Весна 2026</span>
-            <h2>📂 Материалы</h2>
+            <h2>📂 Мои файлы</h2>
             <div style="display: flex; flex-direction: column; gap: 10px;">
-                <a href="таблица 009.xlsx" class="btn-download">📅 Таблица 009 (.xlsx)</a>
-                <a href="таблица oli.ods" class="btn-download">📅 Таблица Oli (.ods)</a>
-                <a href="кросворд 10006.ods" class="btn-download">🧩 Кроссворд (.ods)</a>
+                <a href="таблица 009.xlsx" class="btn-cute">📅 Таблица 009 (.xlsx)</a>
+                <a href="таблица oli.ods" class="btn-cute">📅 Таблица Oli (.ods)</a>
+                <a href="кросворд 10006.ods" class="btn-cute">🧩 Кроссворд (.ods)</a>
             </div>
         </article>
     </main>
 
     <footer>
-        <p>© 2026 Оля Клинова. Создано с любовью и легкостью. 🪽</p>
+        <p>© 2026 Оля Клинова. Сделано с любовью и мурчанием. 🐱💕</p>
     </footer>
 
 </body>
