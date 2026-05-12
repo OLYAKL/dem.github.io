@@ -3,425 +3,419 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>✨ Мой блог | Оля Клинова</title>
+    <title>✨ Блог Оли Клиновой</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #6366f1;
+            --primary: #6366f1;       /* Indigo */
             --primary-dark: #4f46e5;
-            --secondary: #ec4899;
+            --accent: #ec4899;        /* Pink */
             --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text: #1e293b;
+            --text-main: #1e293b;
             --text-muted: #64748b;
             --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --code-bg: #f1f5f9;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
             --radius: 16px;
-            --transition: all 0.3s ease;
         }
 
         @media (prefers-color-scheme: dark) {
             :root {
                 --bg: #0f172a;
                 --card-bg: #1e293b;
-                --text: #f1f5f9;
+                --text-main: #f1f5f9;
                 --text-muted: #94a3b8;
                 --border: #334155;
-                --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3);
+                --code-bg: #0f172a;
             }
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', system-ui, sans-serif;
-            background: var(--bg);
-            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
             line-height: 1.6;
-            padding: 0;
-            margin: 0;
+            padding-bottom: 4rem;
         }
 
-        /* Header */
+        /* Header Design */
         header {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            background: linear-gradient(135deg, var(--primary), var(--accent));
             color: white;
-            padding: 2rem 1rem;
+            padding: 3rem 1rem;
             text-align: center;
             position: relative;
             overflow: hidden;
-        }
-
-        header::before {
-            content: "";
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            animation: pulse 8s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
+            margin-bottom: 2rem;
         }
 
         header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 800;
+            letter-spacing: -0.02em;
             margin-bottom: 0.5rem;
             position: relative;
-            z-index: 1;
+            z-index: 2;
         }
 
         header p {
-            opacity: 0.9;
             font-size: 1.1rem;
+            opacity: 0.9;
             position: relative;
+            z-index: 2;
+        }
+
+        /* Decorative circle in header */
+        header::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -10%;
+            width: 120%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, transparent 60%);
+            animation: pulse 10s infinite alternate;
             z-index: 1;
         }
 
-        /* Navigation */
-        nav {
-            background: var(--card-bg);
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            backdrop-filter: blur(10px);
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
         }
 
-        nav ul {
-            display: flex;
-            justify-content: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            list-style: none;
-            flex-wrap: wrap;
-        }
-
-        nav a {
-            color: var(--text);
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 999px;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: var(--transition);
-        }
-
-        nav a:hover, nav a.active {
-            background: var(--primary);
-            color: white;
-        }
-
-        /* Main Content */
+        /* Container */
         main {
             max-width: 800px;
-            margin: 2rem auto;
-            padding: 0 1rem;
+            margin: 0 auto;
+            padding: 0 1.5rem;
         }
 
-        /* Blog Posts */
+        /* Article Cards */
         article {
             background: var(--card-bg);
             border-radius: var(--radius);
-            padding: 1.5rem;
-            margin-bottom: 1.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
             box-shadow: var(--shadow);
             border: 1px solid var(--border);
-            transition: var(--transition);
-            animation: fadeInUp 0.4s ease forwards;
-            opacity: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0; /* For animation */
+            animation: fadeInUp 0.6s ease forwards;
         }
 
+        article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Staggered animation delays */
         article:nth-child(1) { animation-delay: 0.1s; }
         article:nth-child(2) { animation-delay: 0.2s; }
         article:nth-child(3) { animation-delay: 0.3s; }
         article:nth-child(4) { animation-delay: 0.4s; }
         article:nth-child(5) { animation-delay: 0.5s; }
+        article:nth-child(n+6) { animation-delay: 0.6s; }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        article:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .post-date {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary);
+        /* Date Badge */
+        .date-badge {
+            display: inline-block;
+            font-size: 0.85rem;
             font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            padding: 0.25rem 0.75rem;
+            color: var(--primary);
             background: rgba(99, 102, 241, 0.1);
-            border-radius: 999px;
-        }
-
-        .post-date::before {
-            content: "📅";
-        }
-
-        article h2 {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text);
-        }
-
-        article p, article blockquote {
-            color: var(--text-muted);
+            padding: 0.25rem 0.75rem;
+            border-radius: 99px;
             margin-bottom: 1rem;
         }
 
-        article blockquote {
-            border-left: 4px solid var(--primary);
-            padding-left: 1rem;
-            font-style: italic;
-            background: rgba(99, 102, 241, 0.05);
-            padding: 1rem;
-            border-radius: 0 8px 8px 0;
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
         }
 
-        /* Code Blocks */
-        pre, code {
-            font-family: 'JetBrains Mono', monospace;
-            background: rgba(0,0,0,0.05);
-            padding: 0.2rem 0.4rem;
-            border-radius: 6px;
-            font-size: 0.9em;
-        }
-
-        @media (prefers-color-scheme: dark) {
-            pre, code {
-                background: rgba(255,255,255,0.1);
-            }
-        }
-
-        pre {
-            display: block;
-            padding: 1rem;
-            overflow-x: auto;
-            border-radius: 12px;
-            margin: 1rem 0;
-            background: var(--bg);
-            border: 1px solid var(--border);
-        }
+        p { margin-bottom: 1rem; }
 
         /* Links */
         a {
             color: var(--primary);
             text-decoration: none;
             font-weight: 500;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 0.25rem;
+            border-bottom: 1px solid transparent;
+            transition: all 0.2s;
         }
 
         a:hover {
             color: var(--primary-dark);
-            text-decoration: underline;
+            border-bottom-color: var(--primary-dark);
         }
 
-        a[href^="mailto"] {
-            color: var(--secondary);
-        }
-
-        a[href^="mailto"]:hover {
-            color: #db2777;
-        }
-
-        /* Crypto & Data Cards */
-        .crypto-card, .data-card {
-            background: linear-gradient(135deg, rgba(99,102,241,0.1), rgba(236,72,153,0.1));
-            border: 1px solid var(--border);
-            border-radius: 12px;
-            padding: 1rem;
-            margin: 0.75rem 0;
-        }
-
-        .crypto-card strong, .data-card strong {
-            color: var(--text);
-        }
-
-        .tag {
-            display: inline-block;
+        .btn-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             background: var(--primary);
             color: white;
-            padding: 0.2rem 0.6rem;
-            border-radius: 999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin: 0.25rem 0.25rem 0.25rem 0;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            margin-top: 0.5rem;
+        }
+        
+        .btn-link:hover {
+            background: var(--primary-dark);
+            color: white;
+            border: none;
         }
 
-        .tag.crypto { background: #8b5cf6; }
-        .tag.ml { background: #10b981; }
-        .tag.personal { background: #f59e0b; }
+        /* Code & Data Blocks */
+        pre {
+            background: var(--code-bg);
+            padding: 1rem;
+            border-radius: 12px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            border: 1px solid var(--border);
+            margin: 1rem 0;
+            color: var(--text-main);
+        }
+
+        code {
+            font-family: 'JetBrains Mono', monospace;
+            background: rgba(99, 102, 241, 0.1);
+            padding: 0.2rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: var(--primary-dark);
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            code { color: #818cf8; }
+        }
+
+        /* Special Boxes */
+        .info-box {
+            background: linear-gradient(to right, rgba(99,102,241,0.05), rgba(236,72,153,0.05));
+            border-left: 4px solid var(--primary);
+            padding: 1rem;
+            border-radius: 0 8px 8px 0;
+            margin: 1rem 0;
+        }
+
+        .crypto-list {
+            list-style: none;
+        }
+        
+        .crypto-list li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .crypto-list li:last-child { border-bottom: none; }
 
         /* Images */
-        .post-image {
-            width: 100%;
-            max-width: 400px;
+        img {
+            max-width: 100%;
+            height: auto;
             border-radius: 12px;
-            margin: 1rem 0;
-            display: block;
             box-shadow: var(--shadow);
-            transition: var(--transition);
+            margin: 1rem 0;
         }
 
-        .post-image:hover {
-            transform: scale(1.02);
+        blockquote {
+            font-style: italic;
+            color: var(--text-muted);
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin: 1rem 0;
         }
 
         /* Footer */
         footer {
             text-align: center;
-            padding: 2rem 1rem;
+            margin-top: 3rem;
             color: var(--text-muted);
             font-size: 0.9rem;
-            border-top: 1px solid var(--border);
-            margin-top: 3rem;
         }
 
-        footer a {
-            color: var(--primary);
-        }
-
-        /* Responsive */
-        @media (max-width: 640px) {
-            header h1 {
-                font-size: 2rem;
-            }
-            
-            nav ul {
-                gap: 0.25rem;
-            }
-            
-            nav a {
-                padding: 0.4rem 0.75rem;
-                font-size: 0.85rem;
-            }
-            
-            article {
-                padding: 1.25rem;
-            }
-        }
-
-        /* Utility */
-        .divider {
-            height: 1px;
-            background: var(--border);
-            margin: 1.5rem 0;
-            border: none;
-        }
-
-        .flex {
-            display: flex;
-            gap: 1rem;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .badge {
-            background: var(--secondary);
-            color: white;
-            padding: 0.2rem 0.5rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            font-weight: 600;
+        /* Tags for visual flair */
+        .tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: block;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+
     <header>
-        <h1>✨ Мой блог</h1>
-        <p>Путешествие в мире технологий, криптографии и машинного обучения</p>
+        <h1>Мой Блог</h1>
+        <p>Заметки о коде, данных и жизни</p>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <ul>
-            <li><a href="#" class="active">🏠 Главная</a></li>
-            <li><a href="#crypto">🔐 Криптография</a></li>
-            <li><a href="#ml">🤖 ML & Data</a></li>
-            <li><a href="#personal">📝 Личное</a></li>
-            <li><a href="mailto:olikbolikklinolik@mail.ru.com">✉️ Связаться</a></li>
-        </ul>
-    </nav>
-
-    <!-- Main Content -->
     <main>
-        <!-- Post: 08.04.2026 -->
-        <article id="crypto">
-            <span class="post-date">8 апреля 2026</span>
-            <span class="tag crypto">Криптография</span>
-            <h2>🔐 RSA-шифрование: пример</h2>
-            
-            <div class="crypto-card">
-                <p><strong>Открытый ключ:</strong> (e, n) = (5, 21)</p>
-                <p><strong>Закрытый ключ:</strong> (d, n) = (5, 21)</p>
-                <p><strong>Исходное слово:</strong> <code>привет</code></p>
-                <p><strong>Числовое представление:</strong> <code>[17, 18, 10, 3, 6, 20]</code></p>
-                <p><strong>Шифртекст:</strong> <code>[5, 9, 19, 12, 6, 20]</code></p>
-            </div>
-            
-            <div class="crypto-card">
-                <p><strong>Расшифровка:</strong></p>
-                <p>Шифртекст: <code>[5, 9, 19, 12, 6, 20]</code> → <code>[17, 18, 10, 3, 6, 20]</code> → <strong>привет</strong> ✅</p>
-            </div>
-            
-            <p><a href="test.png" download>📥 Скачать проект</a></p>
+        <!-- Post 1 -->
+        <article>
+            <span class="tag">Проект</span>
+            <div class="date-badge">08 апреля 2026</div>
+            <h2>Тестовый проект</h2>
+            <p>Материалы проекта доступны по ссылке ниже.</p>
+            <a href="test.png" class="btn-link" download>📥 Скачать изображение</a>
         </article>
 
-        <!-- Post: 25.02.2026 -->
-        <article id="ml">
-            <span class="post-date">25 февраля 2026</span>
-            <span class="tag ml">Машинное обучение</span>
-            <h2>🤖 FAQ-бот: обработка запросов</h2>
+        <!-- Post 2: RSA -->
+        <article>
+            <span class="tag">Криптография</span>
+            <div class="date-badge">20 января 2026</div>
+            <h2>🔐 RSA Шифрование: Практика</h2>
             
-            <div class="data-card">
-                <p><strong>Вопрос пользователя:</strong> Сколько ждать мой заказ?</p>
-                <p><strong>Найденный FAQ:</strong> Как быстро доставляется заказ? <span class="badge">sim=0.706</span></p>
-                <p><strong>Ответ бота:</strong> Наш стандартный срок доставки — <strong>3–5 рабочих дней</strong>. 📦</p>
+            <div class="info-box">
+                <p><strong>Параметры ключей:</strong></p>
+                <ul>
+                    <li>Открытый ключ: <code>(e, n) = (5, 21)</code></li>
+                    <li>Закрытый ключ: <code>(d, n) = (5, 21)</code></li>
+                </ul>
+            </div>
+
+            <p><strong>Процесс шифрования слова "привет":</strong></p>
+            <pre>
+Исходное слово: привет
+Числовое представление: [17, 18, 10, 3, 6, 20]
+Открытый ключ (e, n): (5, 21)
+Шифртекст: [5, 9, 19, 12, 6, 20]</pre>
+
+            <p><strong>Процесс расшифровки:</strong></p>
+            <pre>
+Шифртекст: [5, 9, 19, 12, 6, 20]
+Числа после расшифровки: [17, 18, 10, 3, 6, 20]
+Расшифрованное сообщение: привет ✅</pre>
+            
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
+                * Примечание: в реальном RSA число n было бы огромным (например, 152348...), здесь приведен учебный пример.
+            </p>
+        </article>
+
+        <!-- Post 3: Caesar -->
+        <article>
+            <span class="tag">Шифры</span>
+            <div class="date-badge">19 января 2026</div>
+            <h2>🔤 Шифр Цезаря: Примеры</h2>
+            <ul class="crypto-list">
+                <li><code>АПЕЛЬСИН</code> <span>→</span> <code>САЦЬНВЩЮ</code> <small>(Ключ = 17)</small></li>
+                <li><code>АБРИКОС</code> <span>→</span> <code>ЫЬЛГЕЙМ</code> <small>(Ключ = 27)</small></li>
+                <li><code>ФХНЗКЧ</code> <span>→</span> <code>ПРИВЕТ</code> 🔓</li>
+                <li><code>ЦЩЕБФ</code> <span>→</span> <code>ВЕСНА</code> 🌸</li>
+                <li><code>КЛИНКОВА</code> <span>→</span> <code>ФХТЧФШМК</code> ✨</li>
+            </ul>
+        </article>
+
+        <!-- Post 4: Contacts -->
+        <article>
+            <span class="tag">Обо мне</span>
+            <div class="date-badge">14 января 2026</div>
+            <h2>🌐 Контакты и Домен</h2>
+            <p>Доменное имя моего сайта: <strong>olyakl.github.io</strong></p>
+            <p>Если хотите связаться со мной:</p>
+            <a href="mailto:olikbolikklinolik@mail.ru.com" class="btn-link">✉️ Написать письмо</a>
+        </article>
+
+        <!-- Post 5: New Year -->
+        <article>
+            <span class="tag">Праздник</span>
+            <div class="date-badge">22 декабря 2025</div>
+            <h2>🎄 С Новым годом!</h2>
+            <!-- Убедись, что картинка существует в папке Icons -->
+            <img src="Icons/icon.png" alt="Новогодняя елочка">
+            <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>. 🎉</p>
+        </article>
+
+        <!-- Post 6: Friend's Site -->
+        <article>
+            <span class="tag">Друзья</span>
+            <div class="date-badge">15 октября 2025</div>
+            <h2>🤝 Коллаборация</h2>
+            <p>Я сделала Новогодние кроссворды для сайта своего друга.</p>
+            <p>Ссылка исправлена и ведет на GitHub:</p>
+            <a href="https://github.com/Sofia-a-cell/dem.github.io/edit/main/index.html" target="_blank" title="Блог моего друга">
+                Перейти на сайт друга →
+            </a>
+        </article>
+
+        <!-- Post 7: Philosophy -->
+        <article>
+            <span class="tag">Мысли</span>
+            <div class="date-badge">1 сентября 2025</div>
+            <h2>🚀 Начало пути</h2>
+            <blockquote>
+                «Путешествие в тысячу миль начинается с одного шага» <br>
+                <small>— Лао Цзы</small>
+            </blockquote>
+            <p>Оставляю в прошлом скучную локальную файловую систему ради Всемирной паутины.</p>
+            <hr style="border: 0; border-top: 1px solid var(--border); margin: 1rem 0;">
+            <p style="font-size: 0.9rem;">
+                Авторство иконок: <a href="https://www.flaticon.com/ru/free-icons/2026" target="_blank">2026 иконки от Freepik - Flaticon</a>
+            </p>
+        </article>
+
+        <!-- Post 8: AI Predictions -->
+        <article>
+            <span class="tag">Computer Vision</span>
+            <div class="date-badge">18 февраля 2026</div>
+            <h2>👁️ Топ-3 предсказания нейросети</h2>
+            <div class="info-box">
+                <ul style="list-style: none;">
+                    <li>🥇 <strong>running shoe:</strong> 99.45%</li>
+                    <li>🥈 <strong>shoe store:</strong> 0.27%</li>
+                    <li>🥉 <strong>clogs:</strong> 0.15%</li>
+                </ul>
             </div>
         </article>
 
-        <!-- Post: 16.03.2026 -->
-        <article id="ml">
-            <span class="post-date">16 марта 2026</span>
-            <span class="tag ml">Data Science</span>
-            <h2>📊 Прогнозирование успеваемости студентов</h2>
-            
-            <pre><code># Прогноз для одного студента
+        <!-- Post 9: FAQ Bot -->
+        <article>
+            <span class="tag">NLP / Chatbots</span>
+            <div class="date-badge">25 февраля 2026</div>
+            <h2>🤖 Работа FAQ-бота</h2>
+            <pre>
+Вопрос пользователя: Сколько ждать мой заказ?
+Найден FAQ-вопрос: Как быстро доставляется заказ? 
+Схожесть (sim): 0.706
+
+Ответ бота: Наш стандартный срок доставки — 3–5 рабочих дней.</pre>
+        </article>
+
+        <!-- Post 10: Student Prediction -->
+        <article>
+            <span class="tag">Machine Learning</span>
+            <div class="date-badge">16 марта 2026</div>
+            <h2>📊 Прогнозирование успеваемости</h2>
+            <p>Пример кода для прогноза баллов студента на основе часов подготовки:</p>
+            <pre>
+import pandas as pd
+
+# Один прогноз
 new_student = pd.DataFrame({'Часы': [5]})
 prediction = regressor.predict(new_student)
 print(f"Студент занимался 5 часов")
 print(f"Прогноз баллов: {prediction[0]:.2f}")
 
-# Прогноз для группы
+# Группа студентов
 students = pd.DataFrame({'Часы': [1, 3, 5, 7, 10]})
 predictions = regressor.predict(students)
 
@@ -429,125 +423,53 @@ results = pd.DataFrame({
     'Часы подготовки': students['Часы'],
     'Прогноз баллов': predictions
 })
-print(results)</code></pre>
+print(results)</pre>
         </article>
 
-        <!-- Post: 21.03.2026 -->
-        <article id="ml">
-            <span class="post-date">21 марта 2026</span>
-            <span class="tag ml">ML Model</span>
-            <h2>🎯 Модель одобрения страхования</h2>
+        <!-- Post 11: Insurance Model -->
+        <article>
+            <span class="tag">Data Science</span>
+            <div class="date-badge">21 марта 2026</div>
+            <h2>🚗 Модель одобрения страхования</h2>
+            <p><strong>Показатель точности (Accuracy):</strong> <span style="color:var(--primary); font-weight:bold;">87.10%</span></p>
             
-            <div class="data-card">
-                <p><strong>Точность модели:</strong> <span style="color:#10b981;font-weight:600">87.10%</span> ✅</p>
-                <p><strong>Датасет:</strong></p>
-                <ul style="margin-left:1.5rem;color:var(--text-muted)">
-                    <li>Объем: 5,000 записей</li>
-                    <li>Признаки: возраст, стаж вождения, число ДТП</li>
-                    <li>Цель: одобрение страхования (1/0)</li>
-                    <li>Распределение: 61.6% одобрено, 38.4% отклонено</li>
+            <div class="info-box">
+                <h3>О Датасете:</h3>
+                <ul>
+                    <li><strong>Объем:</strong> 5,000 записей</li>
+                    <li><strong>Признаки:</strong> возраст, стаж вождения, число ДТП</li>
+                    <li><strong>Цель:</strong> решение об одобрении (1 - ок, 0 - отказ)</li>
+                    <li><strong>Баланс:</strong> 61.6% одобрено, 38.4% отклонено</li>
                 </ul>
             </div>
         </article>
 
-        <!-- Post: 01.04.2026 -->
+        <!-- Post 12: Metrics -->
         <article>
-            <span class="post-date">1 апреля 2026</span>
-            <span class="tag ml">Заметки</span>
-            <h2>📈 Метрики модели</h2>
+            <span class="tag">ML Metrics</span>
+            <div class="date-badge">1 апреля 2026</div>
+            <h2>📉 Метрики обучения</h2>
             <p><strong>Ошибка на обучении (MSE):</strong> <code>0.0179</code></p>
-            <p><em>⚠️ Модель неинтерпретируема — требуется доработка для production</em></p>
+            <p>⚠️ <em>Вывод:</em> модель пока неинтерпретируема, требуется доработка признаков.</p>
         </article>
 
-        <!-- Post: 20.01.2026 -->
-        <article id="crypto">
-            <span class="post-date">20 января 2026</span>
-            <span class="tag crypto">Шифры</span>
-            <h2>🔤 Шифр Цезаря: примеры</h2>
-            
-            <div class="crypto-card">
-                <p><code>АПЕЛЬСИН</code> → <code>САЦЬНВЩЮ</code> <span class="badge">Ключ = 17</span></p>
-                <p><code>АБРИКОС</code> → <code>ЫЬЛГЕЙМ</code> <span class="badge">Ключ = 27</span></p>
-                <p><code>ФХНЗКЧ</code> → <code>ПРИВЕТ</code> 🔓</p>
-                <p><code>ЦЩЕБФ</code> → <code>ВЕСНА</code> 🌸</p>
-                <p><code>КЛИНКОВА</code> → <code>ФХТЧФШМК</code> ✨</p>
+        <!-- Post 13: Files -->
+        <article>
+            <span class="tag">Файлы</span>
+            <div class="date-badge">Весна 2026</div>
+            <h2>📂 Полезные таблицы</h2>
+            <div style="display: flex; flex-direction: column; gap: 10px;">
+                <a href="таблица 009.xlsx" class="btn-link">📅 22.04.26 — Таблица 009 (.xlsx)</a>
+                <a href="таблица oli.ods" class="btn-link">📅 27.04.26 — Таблица Oli (.ods)</a>
+                <a href="кросворд 10006.ods" class="btn-link">📅 05.05.26 — Кроссворд 10006 (.ods)</a>
             </div>
         </article>
 
-        <!-- Post: 14.01.2026 -->
-        <article id="personal">
-            <span class="post-date">14 января 2026</span>
-            <span class="tag personal">О сайте</span>
-            <h2>🌐 Домен и контакты</h2>
-            <p>Доменное имя моего сайта: <strong>olyakl.github.io</strong></p>
-            <p>📧 <a href="mailto:olikbolikklinolik@mail.ru.com">Написать мне</a></p>
-        </article>
-
-        <!-- Post: 22.12.2025 -->
-        <article id="personal">
-            <span class="post-date">22 декабря 2025</span>
-            <span class="tag personal">Праздники</span>
-            <h2>🎄 С Новым 2026 годом!</h2>
-            <img src="Icons/icon.png" alt="Новогодняя ёлочка" class="post-image">
-            <p>Поздравление с Наступающим 2026 годом читайте <a href="Congratulations2026.html">здесь</a>. 🎉✨</p>
-        </article>
-
-        <!-- Post: 01.09.2025 -->
-        <article id="personal">
-            <span class="post-date">1 сентября 2025</span>
-            <span class="tag personal">Мотивация</span>
-            <blockquote>
-                «Путешествие в тысячу миль начинается с одного шага»<br>
-                <small>— Лао Цзы</small>
-            </blockquote>
-            <p>Оставляю в прошлом скучную локальную файловую систему ради Всемирной паутины. 🚀</p>
-            <p style="font-size:0.9rem;color:var(--text-muted)">
-                Авторство иконок: 
-                <a href="https://www.flaticon.com/ru/free-icons/2026" target="_blank" rel="noopener">
-                    2026 иконки от Freepik - Flaticon
-                </a>
-            </p>
-        </article>
     </main>
 
-    <!-- Footer -->
     <footer>
-        <p>© 2025–2026 <strong>Оля Клинова</strong> • 
-           <a href="https://olyakl.github.io" target="_blank">olyakl.github.io</a>
-        </p>
-        <p style="margin-top:0.5rem;font-size:0.85rem">
-            Создано с ❤️ и кофе ☕
-        </p>
+        <p>© 2025–2026 Оля Клинова. Создано с любовью к коду.</p>
     </footer>
 
-    <script>
-        // Плавная прокрутка для навигации
-        document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                }
-            });
-        });
-
-        // Анимация появления при скролле
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, { threshold: 0.1 });
-
-        document.querySelectorAll('article').forEach(article => {
-            article.style.opacity = '0';
-            article.style.transform = 'translateY(20px)';
-            article.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
-            observer.observe(article);
-        });
-    </script>
 </body>
 </html>
