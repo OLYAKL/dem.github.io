@@ -3,302 +3,587 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>🌸 Мой Блог | Оля Клинова</title>
-    <!-- Подключаем милые и современные шрифты -->
+    <title>🌸✨ Оля Клинова | Волшебный Блог</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Nunito:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            /* Розовая палитра */
-            --bg-pink: #fff0f5;       /* Lavender Blush */
-            --card-bg: #ffffff;
-            --primary-pink: #ff8fa3;  /* Мягкий розовый */
-            --hot-pink: #ff4d6d;      /* Яркий акцент */
-            --text-dark: #590d22;     /* Темно-бордовый для текста */
-            --text-gray: #805b61;
+            /* Winx Pink Palette 🧚‍♀️ */
+            --bg-magic: linear-gradient(135deg, #fff0f5 0%, #ffe4ec 30%, #ffc2d1 60%, #ffb3c1 100%);
+            --card-bg: rgba(255, 255, 255, 0.92);
+            --card-glow: rgba(255, 105, 180, 0.25);
+            --primary-pink: #ff6b9d;
+            --hot-pink: #ff4785;
+            --deep-pink: #c9184a;
+            --sparkle-gold: #ffd700;
+            --magic-purple: #b864c9;
+            --text-dark: #590d22;
+            --text-soft: #805b61;
             --code-bg: #fff5f7;
-            --shadow: 0 10px 30px -5px rgba(255, 77, 109, 0.15);
+            --shadow-soft: 0 8px 32px rgba(255, 71, 133, 0.15);
+            --shadow-glow: 0 0 20px rgba(255, 105, 180, 0.4);
+            --border-magic: 2px solid rgba(255, 143, 163, 0.6);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Nunito', sans-serif;
-            background-color: var(--bg-pink);
-            background-image: radial-gradient(#ffc2d1 1px, transparent 1px);
-            background-size: 20px 20px; /* Эффект точки/горошек */
+            background: var(--bg-magic);
+            background-attachment: fixed;
             color: var(--text-dark);
-            line-height: 1.6;
-            padding-bottom: 3rem;
+            line-height: 1.7;
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
         }
 
-        /* Заголовок сайта */
+        /* ✨ Sparkle Background Animation */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, var(--sparkle-gold), transparent),
+                radial-gradient(2px 2px at 40px 70px, rgba(255,182,193,0.8), transparent),
+                radial-gradient(2px 2px at 50px 160px, var(--primary-pink), transparent),
+                radial-gradient(2px 2px at 90px 40px, var(--magic-purple), transparent),
+                radial-gradient(2px 2px at 130px 80px, rgba(255,215,0,0.6), transparent);
+            background-size: 200px 200px;
+            animation: sparkleFloat 20s linear infinite;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes sparkleFloat {
+            0% { background-position: 0 0, 0 0, 0 0, 0 0, 0 0; }
+            100% { background-position: 200px 200px, 150px 100px, 100px 250px, 250px 50px, 180px 180px; }
+        }
+
+        /* 🧚 Floating Fairy Particles */
+        .fairy-particle {
+            position: fixed;
+            width: 8px; height: 8px;
+            background: radial-gradient(circle, var(--sparkle-gold), transparent);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fairyFloat 15s infinite ease-in-out;
+            opacity: 0.7;
+            z-index: -1;
+            box-shadow: 0 0 10px var(--sparkle-gold);
+        }
+
+        @keyframes fairyFloat {
+            0%, 100% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translateY(-100px) rotate(720deg); opacity: 0; }
+        }
+
+        /* 🌸 Header */
         header {
             text-align: center;
-            padding: 3rem 1rem;
-            background: linear-gradient(135deg, #fff0f3 0%, #ffccd5 100%);
-            border-bottom: 3px solid white;
-            box-shadow: 0 4px 15px rgba(255, 143, 163, 0.2);
-            margin-bottom: 2.5rem;
+            padding: 2.5rem 1rem 3rem;
             position: relative;
+            background: linear-gradient(180deg, rgba(255,240,245,0.95) 0%, transparent 100%);
+            margin-bottom: 2rem;
         }
 
         header h1 {
-            font-size: 2.8rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
             color: var(--hot-pink);
-            font-weight: 800;
-            text-shadow: 2px 2px 0px white;
+            text-shadow: 
+                0 0 10px rgba(255, 71, 133, 0.5),
+                0 0 20px rgba(255, 105, 180, 0.3);
+            animation: titleGlow 3s ease-in-out infinite alternate;
+            position: relative;
+            display: inline-block;
+        }
+
+        @keyframes titleGlow {
+            from { text-shadow: 0 0 10px rgba(255,71,133,0.5), 0 0 20px rgba(255,105,180,0.3); }
+            to { text-shadow: 0 0 20px rgba(255,71,133,0.8), 0 0 40px rgba(255,105,180,0.6), 0 0 60px rgba(255,215,0,0.4); }
+        }
+
+        header h1::after {
+            content: "🧚‍♀️";
+            position: absolute;
+            right: -40px;
+            top: -10px;
+            font-size: 1.8rem;
+            animation: floatEmoji 3s ease-in-out infinite;
+        }
+
+        @keyframes floatEmoji {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(10deg); }
         }
 
         header p {
-            font-size: 1.2rem;
-            color: var(--text-gray);
+            font-size: 1.3rem;
+            color: var(--text-soft);
             margin-top: 0.5rem;
+            font-weight: 600;
         }
 
-        /* Контейнер */
+        /* ✨ Magic Divider */
+        .magic-divider {
+            text-align: center;
+            margin: 2.5rem 0;
+            color: var(--primary-pink);
+            font-size: 1.5rem;
+            position: relative;
+        }
+        .magic-divider::before,
+        .magic-divider::after {
+            content: "✦";
+            margin: 0 10px;
+            animation: twinkle 1.5s ease-in-out infinite;
+        }
+        .magic-divider::after { animation-delay: 0.5s; }
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        /* 📦 Main Container */
         main {
-            max-width: 800px;
+            max-width: 850px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 1.5rem 3rem;
         }
 
-        /* Карточка поста */
+        /* 🎀 Blog Post Card */
         article {
             background: var(--card-bg);
-            border-radius: 24px;
-            padding: 2rem;
+            border-radius: 28px;
+            padding: 2rem 2.2rem;
             margin-bottom: 2rem;
-            box-shadow: var(--shadow);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-soft);
+            border: var(--border-magic);
             position: relative;
             overflow: hidden;
-        }
-
-        /* Эффект при наведении */
-        article:hover {
-            transform: translateY(-7px);
-            border-color: var(--primary-pink);
-            box-shadow: 0 15px 35px -5px rgba(255, 77, 109, 0.25);
-        }
-
-        /* Эффект "Белого кота" */
-        article::after {
-            content: '🐈'; 
-            /* Если хочешь именно белого кота, можно использовать эмодзи или картинку. 
-               Здесь используем фильтр, чтобы сделать кота светлым/призрачным */
-            filter: grayscale(100%) brightness(200%) drop-shadow(0 0 5px pink);
-            font-size: 3rem;
-            position: absolute;
-            top: 1.5rem;
-            right: 1.5rem;
-            opacity: 0;
-            transform: translateX(20px) rotate(10deg);
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
         }
 
-        article:hover::after {
-            opacity: 0.8;
-            transform: translateX(0) rotate(0deg);
+        article:hover {
+            transform: translateY(-8px) scale(1.01);
+            box-shadow: var(--shadow-glow), 0 20px 40px rgba(255, 71, 133, 0.25);
+            border-color: var(--hot-pink);
         }
 
-        /* Даты */
+        /* ✨ Magic Corner Sparkle */
+        article::before {
+            content: "✨";
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transform: scale(0.5) rotate(-20deg);
+            transition: all 0.4s ease;
+            filter: drop-shadow(0 0 5px var(--sparkle-gold));
+        }
+        article:hover::before {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+            animation: sparklePop 0.6s ease-out;
+        }
+        @keyframes sparklePop {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        /* 📅 Date Badge */
         .date-badge {
-            display: inline-block;
-            background: var(--bg-pink);
-            color: var(--hot-pink);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: linear-gradient(135deg, var(--primary-pink), var(--hot-pink));
+            color: white;
             font-weight: 700;
             font-size: 0.85rem;
-            padding: 0.4rem 1rem;
+            padding: 0.45rem 1.1rem;
             border-radius: 50px;
-            margin-bottom: 1rem;
-            border: 1px solid #ffccd5;
+            margin-bottom: 1.1rem;
+            box-shadow: 0 4px 12px rgba(255, 71, 133, 0.35);
+            animation: badgePulse 4s ease-in-out infinite;
+        }
+        @keyframes badgePulse {
+            0%, 100% { box-shadow: 0 4px 12px rgba(255,71,133,0.35); }
+            50% { box-shadow: 0 4px 20px rgba(255,71,133,0.6); }
         }
 
         h2 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
+            font-size: 1.7rem;
+            margin: 0.3rem 0 1.2rem;
             color: var(--text-dark);
+            position: relative;
+            display: inline-block;
+        }
+        h2::after {
+            content: "";
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--primary-pink), transparent);
+            border-radius: 2px;
         }
 
-        /* Ссылки и кнопки */
+        /* 🔗 Links & Buttons */
         a {
             color: var(--hot-pink);
             text-decoration: none;
             font-weight: 700;
-            transition: color 0.2s;
+            transition: all 0.25s ease;
+            position: relative;
         }
-
         a:hover {
-            color: #c9184a;
-            text-decoration: underline;
+            color: var(--deep-pink);
+            text-shadow: 0 0 8px rgba(255, 71, 133, 0.4);
         }
+        a::after {
+            content: "✧";
+            margin-left: 3px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        a:hover::after { opacity: 1; }
 
-        .btn-cute {
+        .btn-magic {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            background: var(--hot-pink);
+            gap: 8px;
+            background: linear-gradient(135deg, var(--hot-pink), var(--primary-pink));
             color: white !important;
-            padding: 0.7rem 1.4rem;
-            border-radius: 15px;
+            padding: 0.8rem 1.6rem;
+            border-radius: 18px;
             margin-top: 1rem;
+            font-weight: 700;
             text-decoration: none !important;
-            box-shadow: 0 4px 10px rgba(255, 77, 109, 0.3);
-            transition: transform 0.2s;
+            box-shadow: 0 6px 20px rgba(255, 71, 133, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
         }
-
-        .btn-cute:hover {
-            background: #ff4785;
-            transform: scale(1.05);
+        .btn-magic::before {
+            content: "";
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
         }
+        .btn-magic:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 0 8px 25px rgba(255, 71, 133, 0.6);
+        }
+        .btn-magic:hover::before { left: 100%; }
 
-        /* Оформление кода */
+        /* 💻 Code Blocks */
         pre {
             background: var(--code-bg);
-            padding: 1rem;
-            border-radius: 12px;
+            padding: 1.2rem;
+            border-radius: 16px;
             border-left: 4px solid var(--primary-pink);
             font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
+            font-size: 0.92rem;
             color: var(--text-dark);
             overflow-x: auto;
-            margin: 1rem 0;
+            margin: 1.2rem 0;
+            box-shadow: inset 0 0 15px rgba(255, 143, 163, 0.1);
+            position: relative;
         }
-
+        pre::before {
+            content: "🔮";
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            font-size: 1.1rem;
+            opacity: 0.6;
+        }
         code {
             font-family: 'JetBrains Mono', monospace;
-            background: rgba(255, 143, 163, 0.2);
-            padding: 0.2rem 0.4rem;
-            border-radius: 6px;
-            color: #a4133c;
+            background: rgba(255, 143, 163, 0.25);
+            padding: 0.25rem 0.5rem;
+            border-radius: 8px;
+            color: var(--deep-pink);
+            font-weight: 500;
         }
 
-        /* Списки и цитаты */
+        /* 📋 Lists */
         ul.crypto-list {
             list-style: none;
+            margin: 0.8rem 0;
         }
-        
         ul.crypto-list li {
-            padding: 0.6rem 0;
-            border-bottom: 1px dashed #ffccd5;
+            padding: 0.7rem 0;
+            border-bottom: 1px dashed rgba(255, 143, 163, 0.5);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        ul.crypto-list li::before {
+            content: "🔹";
+            color: var(--primary-pink);
         }
 
+        /* 💬 Quotes */
         blockquote {
-            background: white;
+            background: linear-gradient(135deg, rgba(255,240,245,0.8), rgba(255,228,235,0.9));
             border-left: 5px solid var(--primary-pink);
-            padding: 1rem;
+            padding: 1.3rem 1.5rem;
             font-style: italic;
-            color: var(--text-gray);
-            border-radius: 0 12px 12px 0;
-            margin: 1rem 0;
+            color: var(--text-soft);
+            border-radius: 0 16px 16px 0;
+            margin: 1.2rem 0;
+            position: relative;
+            box-shadow: var(--shadow-soft);
+        }
+        blockquote::before {
+            content: """;
+            position: absolute;
+            top: -15px;
+            left: 10px;
+            font-size: 4rem;
+            color: rgba(255, 105, 180, 0.2);
+            font-family: Georgia, serif;
+            line-height: 1;
         }
 
+        /* 🖼️ Images */
         img {
             max-width: 100%;
-            border-radius: 16px;
+            border-radius: 20px;
             border: 4px solid white;
-            box-shadow: var(--shadow);
-            margin: 1rem 0;
+            box-shadow: var(--shadow-glow);
+            margin: 1.2rem 0;
+            transition: transform 0.4s ease;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        img:hover {
+            transform: scale(1.03) rotate(1deg);
+            box-shadow: 0 0 30px rgba(255, 105, 180, 0.5);
         }
 
-        /* Footer */
+        /* 🎯 Stats & Results Box */
+        .stats-box {
+            background: linear-gradient(135deg, rgba(255,245,247,0.9), rgba(255,228,235,0.95));
+            padding: 1.2rem;
+            border-radius: 16px;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 143, 163, 0.4);
+        }
+        .stats-box p {
+            margin: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .stats-box strong {
+            color: var(--hot-pink);
+        }
+
+        /* 🧩 File Grid */
+        .file-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 12px;
+            margin-top: 1rem;
+        }
+        .file-card {
+            background: white;
+            padding: 1rem;
+            border-radius: 14px;
+            text-align: center;
+            border: 1px solid rgba(255, 143, 163, 0.3);
+            transition: all 0.3s ease;
+        }
+        .file-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary-pink);
+        }
+        .file-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* 🦋 Footer */
         footer {
             text-align: center;
-            margin-top: 3rem;
-            color: var(--text-gray);
-            font-size: 0.9rem;
+            padding: 2.5rem 1rem 3rem;
+            color: var(--text-soft);
+            font-size: 1rem;
+            position: relative;
+            margin-top: 2rem;
         }
+        footer::before {
+            content: "🧚‍♀️💕🦋";
+            display: block;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            animation: floatEmoji 4s ease-in-out infinite;
+        }
+
+        /* 📱 Responsive */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.6rem; }
+            article { padding: 1.6rem; }
+            h2 { font-size: 1.45rem; }
+            .file-grid { grid-template-columns: 1fr; }
+        }
+
+        /* 🎀 Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: rgba(255, 240, 245, 0.6); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(180deg, var(--primary-pink), var(--hot-pink)); 
+            border-radius: 10px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+        ::-webkit-scrollbar-thumb:hover { 
+            background: linear-gradient(180deg, var(--hot-pink), var(--deep-pink)); 
+        }
+
+        /* ✨ Winx Transformation Effect on Load */
+        @keyframes winxEntrance {
+            0% { opacity: 0; transform: translateY(30px) scale(0.95); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        article {
+            animation: winxEntrance 0.6s ease-out forwards;
+            opacity: 0;
+        }
+        article:nth-child(1) { animation-delay: 0.1s; }
+        article:nth-child(2) { animation-delay: 0.2s; }
+        article:nth-child(3) { animation-delay: 0.3s; }
+        article:nth-child(4) { animation-delay: 0.4s; }
+        article:nth-child(5) { animation-delay: 0.5s; }
+        article:nth-child(6) { animation-delay: 0.6s; }
+        article:nth-child(7) { animation-delay: 0.7s; }
+        article:nth-child(8) { animation-delay: 0.8s; }
+        article:nth-child(9) { animation-delay: 0.9s; }
+        article:nth-child(10) { animation-delay: 1.0s; }
+        article:nth-child(11) { animation-delay: 1.1s; }
+        article:nth-child(12) { animation-delay: 1.2s; }
     </style>
 </head>
 <body>
 
+    <!-- ✨ Floating Fairy Particles -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create magical particles
+            for (let i = 0; i < 12; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'fairy-particle';
+                particle.style.left = Math.random() * 100 + 'vw';
+                particle.style.animationDelay = Math.random() * 15 + 's';
+                particle.style.animationDuration = (12 + Math.random() * 10) + 's';
+                document.body.appendChild(particle);
+            }
+        });
+    </script>
+
     <header>
-        <h1>🌸 Pink Blog</h1>
-        <p>Уютные заметки о коде и жизни</p>
+        <h1>🌸 Оля Клинова</h1>
+        <p>✨ Волшебный блог о коде, шифрах и чудесах ✨</p>
     </header>
 
     <main>
-        <!-- Пост 1 -->
+        <!-- Пост 1: Проект -->
         <article>
-            <span class="date-badge">08 апреля 2026</span>
+            <span class="date-badge">📅 08.04.2026</span>
             <h2>✨ Мой проект</h2>
-            <p>Здесь можно скачать тестовое изображение.</p>
-            <a href="test.png" class="btn-cute" download>📥 Скачать (test.png)</a>
+            <p>Здесь можно скачать тестовое изображение для волшебных экспериментов! 🎨</p>
+            <a href="test.png" class="btn-magic" download>📥 Скачать test.png</a>
         </article>
 
         <!-- Пост 2: RSA -->
         <article>
-            <span class="date-badge">20 января 2026</span>
+            <span class="date-badge">📅 20.01.2026</span>
             <h2>🔐 RSA Шифрование</h2>
-            <p><strong>Ключи:</strong> e=5, n=21 (Открытый), d=5 (Закрытый)</p>
+            <p><strong>Ключи:</strong> <code>e=5, n=21</code> (Открытый) | <code>d=5</code> (Закрытый)</p>
             
             <pre>
 Исходное слово: привет
 Числа: [17, 18, 10, 3, 6, 20]
-Шифртекст: [5, 9, 19, 12, 6, 20]</pre>
+🔒 Шифртекст: [5, 9, 19, 12, 6, 20]</pre>
 
-            <p style="margin-top:1rem;"><strong>Расшифровка прошла успешно:</strong></p>
+            <p style="margin-top:1rem;"><strong>✅ Расшифровка прошла успешно:</strong></p>
             <pre>
-[5, 9, 19, 12, 6, 20] ➔ [17, 18, 10, 3, 6, 20] ➔ привет 🐱</pre>
+[5, 9, 19, 12, 6, 20] ➔ [17, 18, 10, 3, 6, 20] ➔ привет 🐱✨</pre>
         </article>
 
         <!-- Пост 3: Цезарь -->
         <article>
-            <span class="date-badge">19 января 2026</span>
+            <span class="date-badge">📅 19.01.2026</span>
             <h2>🏛️ Шифр Цезаря</h2>
             <ul class="crypto-list">
-                <li><code>АПЕЛЬСИН</code> ➔ <code>САЦЬНВЩЮ</code> (Ключ 17)</li>
-                <li><code>АБРИКОС</code> ➔ <code>ЫЬЛГЕЙМ</code> (Ключ 27)</li>
-                <li><code>ФХНЗКЧ</code> ➔ <code>ПРИВЕТ</code> 🔓</li>
+                <li><code>АПЕЛЬСИН</code> ➔ <code>САЦЬНВЩЮ</code> 🔑 Ключ: 17</li>
+                <li><code>АБРИКОС</code> ➔ <code>ЫЬЛГЕЙМ</code> 🔑 Ключ: 27</li>
+                <li><code>ФХНЗКЧ</code> ➔ <code>ПРИВЕТ</code> 🔓✨</li>
                 <li><code>ЦЩЕБФ</code> ➔ <code>ВЕСНА</code> 🌸</li>
-                <li><code>КЛИНКОВА</code> ➔ <code>ФХТЧФШМК</code> ✨</li>
+                <li><code>КЛИНКОВА</code> ➔ <code>ФХТЧФШМК</code> 💫</li>
             </ul>
         </article>
 
         <!-- Пост 4: Контакты -->
         <article>
-            <span class="date-badge">14 января 2026</span>
+            <span class="date-badge">📅 14.01.2026</span>
             <h2>💌 Контакты</h2>
-            <p>Мой домен: <strong>olyakl.github.io</strong></p>
-            <a href="mailto:olikbolikklinolik@mail.ru.com" class="btn-cute">✉️ Написать письмо</a>
+            <p>🌐 Мой домен: <strong>olyakl.github.io</strong></p>
+            <p>✉️ Напиши мне волшебное письмо:</p>
+            <a href="mailto:olikbolikklinolik@mail.ru" class="btn-magic">✉️ Отправить письмо</a>
         </article>
 
         <!-- Пост 5: Новый год -->
         <article>
-            <span class="date-badge">22 декабря 2025</span>
-            <h2>🎄 Happy New Year 2026!</h2>
-            <img src="Icons/icon.png" alt="Новогодняя елочка">
-            <p>Поздравление читай <a href="Congratulations2026.html">здесь</a>.</p>
+            <span class="date-badge">📅 22.12.2025</span>
+            <h2>🎄✨ Happy New Year 2026!</h2>
+            <img src="Icons/icon.png" alt="Волшебная ёлочка">
+            <p>🎁 Поздравление читай <a href="Congratulations2026.html">здесь</a>.</p>
         </article>
 
         <!-- Пост 6: Друг -->
         <article>
-            <span class="date-badge">15 октября 2025</span>
-            <h2>👯‍♀️ Для сайта друга</h2>
-            <p>Сделала новогодние кроссворды!</p>
-            <a href="https://github.com/Sofia-a-cell/dem.github.io/edit/main/index.html" target="_blank">Перейти к другу ➔</a>
+            <span class="date-badge">📅 15.10.2025</span>
+            <h2>👯‍♀️ Для сайта подруги</h2>
+            <p>Сделала новогодние кроссворды с магическими подсказками! 🧩✨</p>
+            <a href="https://github.com/Sofia-a-cell/dem.github.io/edit/main/index.html" target="_blank" class="btn-magic">🔗 Перейти к подруге</a>
         </article>
 
         <!-- Пост 7: Цитата -->
         <article>
-            <span class="date-badge">1 сентября 2025</span>
-            <h2>🐾 Мудрость дня</h2>
+            <span class="date-badge">📅 01.09.2025</span>
+            <h2>🦋 Мудрость дня</h2>
             <blockquote>
                 «Путешествие в тысячу миль начинается с одного шага» <br>
-                <small>— Лао Цзы</small>
+                <small>— Лао Цзы ✨</small>
             </blockquote>
-            <p>Hello, World Wide Web! 👋</p>
+            <p>Hello, World Wide Web! 👋🌸</p>
         </article>
 
         <!-- Пост 8: AI -->
         <article>
-            <span class="date-badge">18 февраля 2026</span>
+            <span class="date-badge">📅 18.02.2026</span>
             <h2>👁️ Нейросеть увидела:</h2>
-            <div style="background: #fff5f7; padding: 1rem; border-radius: 12px;">
+            <div class="stats-box">
                 <p>🥇 <strong>running shoe:</strong> 99.45%</p>
                 <p>🥈 <strong>shoe store:</strong> 0.27%</p>
                 <p>🥉 <strong>clogs:</strong> 0.15%</p>
@@ -307,72 +592,115 @@
 
         <!-- Пост 9: FAQ Bot -->
         <article>
-            <span class="date-badge">25 февраля 2026</span>
+            <span class="date-badge">📅 25.02.2026</span>
             <h2>🤖 FAQ Bot</h2>
             <pre>
 User: Сколько ждать мой заказ?
 Bot: Наш стандартный срок доставки — 3–5 рабочих дней.
-(Similarity: 0.706)</pre>
+✨ Similarity: 0.706</pre>
         </article>
 
         <!-- Пост 10: ML Code -->
         <article>
-            <span class="date-badge">16 марта 2026</span>
+            <span class="date-badge">📅 16.03.2026</span>
             <h2>📊 Прогноз успеваемости (Python)</h2>
             <pre>
 # Создаем датафрейм
 new_student = pd.DataFrame({'Часы': [5]})
 prediction = regressor.predict(new_student)
 
-print(f"Прогноз баллов: {prediction[0]:.2f}")</pre>
+print(f"✨ Прогноз баллов: {prediction[0]:.2f}")</pre>
         </article>
 
         <!-- Пост 11: Insurance Model -->
         <article>
-            <span class="date-badge">21 марта 2026</span>
+            <span class="date-badge">📅 21.03.2026</span>
             <h2>🚗 Страхование (ML Model)</h2>
-            <p><strong>Точность:</strong> <span style="color:var(--hot-pink); font-weight:bold;">87.10%</span></p>
-            <ul style="margin-left: 1.5rem; margin-top: 0.5rem; color: var(--text-gray);">
-                <li>Датасет: 5,000 записей</li>
-                <li>Одобрено: 61.6%</li>
-                <li>Признаки: возраст, стаж, ДТП</li>
+            <p><strong>Точность:</strong> <span style="color:var(--hot-pink); font-weight:800; font-size:1.2rem;">87.10%</span> ✨</p>
+            <ul style="margin-left: 1.5rem; margin-top: 0.8rem; color: var(--text-soft);">
+                <li>📊 Датасет: 5,000 записей</li>
+                <li>✅ Одобрено: 61.6%</li>
+                <li>🔍 Признаки: возраст, стаж, ДТП</li>
             </ul>
         </article>
 
         <!-- Пост 12: Файлы -->
         <article>
-            <span class="date-badge">Весна 2026</span>
-            <h2>📂 Мои файлы</h2>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-                <a href="таблица 009.xlsx" class="btn-cute">📅 Таблица 009 (.xlsx)</a>
-                <a href="таблица oli.ods" class="btn-cute">📅 Таблица Oli (.ods)</a>
-                <a href="кросворд 10006.ods" class="btn-cute">🧩 Кроссворд (.ods)</a>
+            <span class="date-badge">📅 Весна 2026</span>
+            <h2>📂 Мои волшебные файлы</h2>
+            <div class="file-grid">
+                <a href="таблица 009.xlsx" class="file-card">
+                    <span class="icon">📊</span>
+                    Таблица 009 (.xlsx)
+                </a>
+                <a href="таблица oli.ods" class="file-card">
+                    <span class="icon">📈</span>
+                    Таблица Oli (.ods)
+                </a>
+                <a href="кросворд 10006.ods" class="file-card">
+                    <span class="icon">🧩</span>
+                    Кроссворд (.ods)
+                </a>
+                <a href="таблица с диаграммой.ods" class="file-card">
+                    <span class="icon">📉</span>
+                    Таблица с диаграммой
+                </a>
             </div>
+        </article>
+
+        <!-- Пост 13: Вопросы по информатике -->
+        <article>
+            <span class="date-badge">📅 12.05.2026</span>
+            <h2>📚 Вопросы по информатике</h2>
+            <p><strong>1. Информатика — это наука о:</strong><br>
+            ✅ 3) информации, ее свойствах, способах представления, методах сбора, обработки, хранения и передачи;</p>
+            
+            <p><strong>2. Папирус, книги и флеш-накопители позволяют:</strong><br>
+            ✅ 1) хранить информацию;</p>
+            
+            <p><strong>3. Что понимают под информацией?</strong><br>
+            ✅ 3) это сведения о чем-либо; ✨</p>
         </article>
     </main>
-    <h2>12.05.2026</h2>
-    <p>     1. Информатика - это наука о:</p>
-3) информации, ее свойствах, способах представления, методах сбора, обработки, хранения и передачи; <br>
 
-<p>2. Папирус, книги и флеш-накопители позволяют:</p>
-1) хранить информацию; <br>
+    <div class="magic-divider">🧚‍♀️ Создано с магией и любовью 🧚‍♀️</div>
 
-
-<p>    3. Что понимают под информацией? </p>
-3) это сведения о чем-либо; <br>
-    
-  <article>
-            <span class="date-badge">21.05.2026</span>
-            <h2>📂 Мои файлы</h2>
-            <div style="display: flex; flex-direction: column; gap: 10px;">
-     <a href="таблица с диаграммой.ods">таблица</a>
-            </div>
-        </article>
-   
-    
     <footer>
-        <p>© 2026 Оля Клинова. Сделано с любовью и мурчанием. 🐱💕</p>
+        <p>© 2026 Оля Клинова | <strong>olyakl.github.io</strong></p>
+        <p style="margin-top: 0.5rem; font-size: 0.95rem;">Сделано с 💖, блёстками и волшебством Винкс ✨🦋🌸</p>
     </footer>
+
+    <!-- ✨ Extra Magic: Hover Sparkles Script -->
+    <script>
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() > 0.95) {
+                const spark = document.createElement('div');
+                spark.innerHTML = '✨';
+                spark.style.cssText = `
+                    position: fixed;
+                    left: ${e.pageX}px;
+                    top: ${e.pageY}px;
+                    font-size: ${10 + Math.random()*10}px;
+                    pointer-events: none;
+                    animation: fadeSpark 1s ease-out forwards;
+                    z-index: 9999;
+                    text-shadow: 0 0 5px gold;
+                `;
+                document.body.appendChild(spark);
+                setTimeout(() => spark.remove(), 1000);
+            }
+        });
+
+        // Add fade animation dynamically
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes fadeSpark {
+                0% { opacity: 1; transform: scale(1) translateY(0); }
+                100% { opacity: 0; transform: scale(0.3) translateY(-20px); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
 
 </body>
 </html>
